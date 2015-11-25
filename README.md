@@ -1,10 +1,16 @@
 Playground and notes about Openstack, Ruby, Fog
 ===============================================
 
+Tasks
+-----
+
+  * [Add sshkey to nova instance](sshkey_nova)
+
 Resources
 ---------
-  * https://github.com/fog/fog
 
+  * http://docs.openstack.org/user-guide/
+  * https://github.com/fog/fog
 
 Requirements
 ------------

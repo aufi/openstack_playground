@@ -1,0 +1,5 @@
+irb(main):020:0* ems = ManageIQ::Providers::Openstack::CloudManager.first
+  ManageIQ::Providers::Openstack::CloudManager Load (0.4ms)  SELECT  "ext_management_systems".* FROM "ext_management_systems" WHERE "ext_management_systems"."type" IN ('ManageIQ::Providers::Openstack::CloudManager')  ORDER BY "ext_management_systems"."id" ASC LIMIT 1
+  ManageIQ::Providers::Openstack::CloudManager Inst Including Associations (0.1ms - 1rows)
+=> #<ManageIQ::Providers::Openstack::CloudManager id: 1, name: "openstack_kilo", port: "5000", hostname: "10.8.99.233", ipaddress: nil, created_on: "2015-11-20 08:40:18", updated_on: "2015-12-02 13:52:23", guid: "54523294-8f62-11e5-8196-02420bd2c3fb", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2015-12-02 13:52:23", provider_id: nil, security_protocol: nil, realm: nil, tenant_id: 1, project: nil>
+irb(main):021:0> ems.with_provider_connection(service: 'Compute') {|service| p service }

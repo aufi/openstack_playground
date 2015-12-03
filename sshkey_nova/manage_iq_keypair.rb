@@ -31,9 +31,12 @@ irb(main):003:0> ManageIQ::Providers::Openstack::CloudManager::AuthKeyPair.creat
     id=nil
   >
 irb(main):004:0> ManageIQ::Providers::Openstack::CloudManager::AuthKeyPair.find_by_name('testkaypairmiq').delete_keypair(ems)
+r.send(:get_key_pairs)
   ManageIQ::Providers::Openstack::CloudManager::AuthKeyPair Load (0.3ms)  SELECT  "authentications".* FROM "authentications" WHERE "authentications"."type" IN ('ManageIQ::Providers::Openstack::CloudManager::AuthKeyPair') AND "authentications"."name" = $1 LIMIT 1  [["name", "testkaypairmiq"]]
   ManageIQ::Providers::Openstack::CloudManager::AuthKeyPair Inst Including Associations (0.1ms - 1rows)
   Authentication Load (0.3ms)  SELECT "authentications".* FROM "authentications" WHERE "authentications"."resource_id" = $1 AND "authentications"."resource_type" = $2  [["resource_id", 1], ["resource_type", "ExtManagementSystem"]]
   Authentication Inst Including Associations (6.3ms - 4rows)
 => nil
 
+# refresher - fetch keys
+r = ManageIQ::Providers::Openstack::CloudManager::RefreshParser.new(ems)

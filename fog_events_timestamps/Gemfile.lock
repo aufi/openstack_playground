@@ -1,0 +1,41 @@
+GIT
+  remote: https://github.com/fog/fog-openstack.git
+  revision: 24bb249cc9d4a230e7014cbf7be22c957157c64b
+  branch: master
+  specs:
+    fog-openstack (0.1.2)
+      fog-core (>= 1.35)
+      fog-json (>= 1.0)
+      fog-xml (>= 0.1)
+      ipaddress (>= 0.8)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    builder (3.2.2)
+    excon (0.48.0)
+    fog-core (1.36.0)
+      builder
+      excon (~> 0.45)
+      formatador (~> 0.2)
+    fog-json (1.0.2)
+      fog-core (~> 1.0)
+      multi_json (~> 1.10)
+    fog-xml (0.1.2)
+      fog-core
+      nokogiri (~> 1.5, >= 1.5.11)
+    formatador (0.2.5)
+    ipaddress (0.8.3)
+    mini_portile2 (2.0.0)
+    multi_json (1.11.2)
+    nokogiri (1.6.7.2)
+      mini_portile2 (~> 2.0.0.rc2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fog-openstack!
+
+BUNDLED WITH
+   1.11.2

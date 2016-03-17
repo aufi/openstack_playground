@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+#gem "fog", :git => "https://github.com/fog/fog.git", :branch => "master"
+gem "fog-openstack", :git => "https://github.com/fog/fog-openstack.git", :branch => "master"

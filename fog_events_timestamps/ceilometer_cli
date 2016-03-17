@@ -1,0 +1,47 @@
+# Ceilometer CLI example
+
+# ceilometer event-list --no-traits
++--------------------------------------+-------------------------------------+----------------------------+
+| Message ID                           | Event Type                          | Generated                  |
++--------------------------------------+-------------------------------------+----------------------------+
+| 4eebedfb-465b-4b15-a835-206267f19cae | scheduler.select_destinations.start | 2016-03-10T15:35:44.425000 |
+| 02b44ae2-b6ca-42b2-bf21-68a5f900c82b | compute.instance.shutdown.end       | 2016-03-16T12:57:24.232000 |
+| bd3cec25-2f62-4975-b66e-d52159cfd6b9 | compute.instance.delete.end         | 2016-03-16T12:57:24.687000 |
+| 458c975f-19f9-4162-8d54-5d639df276c3 | scheduler.select_destinations.end   | 2016-03-17T09:58:02.796000 |
+| 60fac82d-aefe-40b2-bb58-ad6df50917be | compute.instance.create.start       | 2016-03-17T09:58:03.138000 |
+| 9ff5d77a-7a44-4972-93c4-0724d1ab0ffc | port.create.start                   | 2016-03-17T09:58:03.825000 |
+| bd07a9ba-6c1d-4fbd-bdc3-47540504c9e5 | port.create.end                     | 2016-03-17T09:58:04.089000 |
+| ffb7084f-6230-40af-8599-d9d6ad99a511 | compute.instance.create.end         | 2016-03-17T09:58:29.336000 |
+| 7b76e553-b804-4b67-9191-b9595b513e6e | floatingip.update.start             | 2016-03-17T09:59:44.606000 |
+| 8b4bcdb3-5519-459c-9545-aba0d5760a62 | floatingip.update.end               | 2016-03-17T09:59:45.150000 |
++--------------------------------------+-------------------------------------+----------------------------+
+
+# ceilometer event-list --no-traits --query "start_timestamp>datetime::2016-03-17T09:59:44.606000"
++--------------------------------------+-------------------------+----------------------------+
+| Message ID                           | Event Type              | Generated                  |
++--------------------------------------+-------------------------+----------------------------+
+| 7b76e553-b804-4b67-9191-b9595b513e6e | floatingip.update.start | 2016-03-17T09:59:44.606000 |
+| 8b4bcdb3-5519-459c-9545-aba0d5760a62 | floatingip.update.end   | 2016-03-17T09:59:45.150000 |
++--------------------------------------+-------------------------+----------------------------+
+
+# ceilometer event-list --no-traits --query "start_timestamp>string::2016-03-17T09:59:44.606000"
++--------------------------------------+-------------------------+----------------------------+
+| Message ID                           | Event Type              | Generated                  |
++--------------------------------------+-------------------------+----------------------------+
+| 7b76e553-b804-4b67-9191-b9595b513e6e | floatingip.update.start | 2016-03-17T09:59:44.606000 |
+| 8b4bcdb3-5519-459c-9545-aba0d5760a62 | floatingip.update.end   | 2016-03-17T09:59:45.150000 |
++--------------------------------------+-------------------------+----------------------------+
+
+# ceilometer event-list --no-traits --query "start_timestamp>=string::2016-03-17T09:59:44.606000"
++--------------------------------------+-------------------------+----------------------------+
+| Message ID                           | Event Type              | Generated                  |
++--------------------------------------+-------------------------+----------------------------+
+| 7b76e553-b804-4b67-9191-b9595b513e6e | floatingip.update.start | 2016-03-17T09:59:44.606000 |
+| 8b4bcdb3-5519-459c-9545-aba0d5760a62 | floatingip.update.end   | 2016-03-17T09:59:45.150000 |
++--------------------------------------+-------------------------+----------------------------+
+
+# Description
+# I would expect that first two commands return only event 8b4bcdb3-5519-459c-9545-aba0d5760a62,
+# but it returns two events what is the same as ">=", so it looks that greater than behaves same as
+# greater or equal
+# (if start_timestamp == generated field)

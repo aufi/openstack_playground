@@ -31,7 +31,8 @@ Connect with sshuttle
 ---------------------
 
 ```
-# pip install sshuttle
+# dnf install sshuttle # on fedora or
+# pip install sshuttle # elsewhere
 ```
 
 ```

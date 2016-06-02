@@ -54,5 +54,5 @@ Known sshuttle issues
  * It might be a dirty solution.
  * Requires python (no problem).
  * Lower performance than real VPN, but it is easy to setup.
- * Encoding issues can be fixed changing server.py line around 69 encoding ascii -> utf-8 (netstat -rn output parsing), path /usr/lib/python<VERSION>/site-packages/sshuttle/server.py
+ * Encoding issues can be fixed changing server.py line around 69 encoding ascii -> utf-8 (netstat -rn output parsing), path /usr/lib/python__VERSION__/site-packages/sshuttle/server.py
 

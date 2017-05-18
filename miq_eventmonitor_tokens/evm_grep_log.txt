@@ -1,0 +1,837 @@
+$ tailf log/evm.log | grep -B2 -A10 "###"
+[----] I, [2017-05-18T13:29:05.345815 #30645:2aff31f54f3c]  INFO -- :   :ems_id: 88
+[----] I, [2017-05-18T13:29:05.355233 #30645:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager#with_provider_connection) Connecting through ManageIQ::Providers::Openstack::CloudManager: [OSP11_oc]
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:18:35", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:18:35", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:89:in `available_event_monitor'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:73:in `event_monitor_class'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:11:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:05.405966 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:29:06.104468 #30609:2aff31f54f3c]  INFO -- : MIQ(AuthUseridPassword#validation_successful) [ExtManagementSystem] [85], previously valid/invalid on: [2017-05-18 11:18:16 UTC]/[2017-05-15 11:13:08 UTC], previous status: [Valid]
+[----] I, [2017-05-18T13:29:06.122346 #30609:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377716],  id: [], Zone: [default], Role: [], Server: [], Ident: [generic], Target id: [], Instance id: [], Task id: [], Command: [MiqEvent.raise_evm_event], Timeout: [600], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [["ManageIQ::Providers::Openstack::InfraManager", 85], "ems_auth_valid", {}]
+[----] I, [2017-05-18T13:29:06.188171 #30627:2aff31f54f3c]  INFO -- : MIQ(AuthUseridPassword#validation_successful) [ExtManagementSystem] [85], previously valid/invalid on: [2017-05-18 11:18:16 UTC]/[2017-05-15 11:13:08 UTC], previous status: [Valid]
+[----] I, [2017-05-18T13:29:06.202727 #30627:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377717],  id: [], Zone: [default], Role: [], Server: [], Ident: [generic], Target id: [], Instance id: [], Task id: [], Command: [MiqEvent.raise_evm_event], Timeout: [600], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [["ManageIQ::Providers::Openstack::InfraManager", 85], "ems_auth_valid", {}]
+NOTICE:  identifier "MIQ 30609 Openstack::NetworkManager::Refresh[17122], s[1], de..." will be truncated to "MIQ 30609 Openstack::NetworkManager::Refresh[17122], s[1], de.."
+[----] I, [2017-05-18T13:29:06.469666 #30609:2aff31f54f3c]  INFO -- : ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker::Runner started. ID [17122], PID [30609], GUID [65b60cc9-64c9-4cbd-ba1d-49a7982e1c65], Zone [default], Role [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket]
+[----] I, [2017-05-18T13:29:06.470024 #30609:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker::Runner#do_wait_for_worker_monitor) EMS [192.168.24.1] as [admin] Checking that worker monitor has started before doing work
+[----] I, [2017-05-18T13:29:06.472948 #30609:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker::Runner#do_wait_for_worker_monitor) EMS [192.168.24.1] as [admin] Starting work since worker monitor has started
+[----] I, [2017-05-18T13:29:06.473022 #30609:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker::Runner#do_before_work_loop) EMS [192.168.24.1] as [admin] Queueing initial refresh for EMS.
+--
+[----] I, [2017-05-18T13:29:08.117386 #30636:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377725],  id: [], Zone: [default], Role: [ems_inventory], Server: [], Ident: [ems_87], Target id: [], Instance id: [], Task id: [], Command: [EmsRefresh.refresh], Timeout: [7200], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [[["ManageIQ::Providers::StorageManager::CinderManager", 87]]]
+[----] I, [2017-05-18T13:29:08.119235 #30636:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::CinderManager::RefreshWorker::Runner#worker_monitor_drb) EMS [10.0.0.106] as [admin] Initializing DRb Connection to MiqServer with ID=[1], NAME=[EVM], PID=[30508], GUID=[2b1ad006-4a3f-11e5-b078-54ee75346316] DRb URI=[druby://127.0.0.1:46207]
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:18:35", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:18:35", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:11:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:08.279704 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:29:08.279982 #30508:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventCatcher.sync_workers) Workers are being synchronized: Current: [], Desired: ["ems_89"]
+[----] D, [2017-05-18T13:29:08.280173 #30508:2aff31f54f3c] DEBUG -- : MIQ(MiqServer#invoke_algorithm) Invoke algorithm started with options: [{:type=>:start, :worker_name=>"ManageIQ::Providers::Openstack::CloudManager::EventCatcher", :name=>:used_swap_percent_lt_value, :value=>60}]
+[----] D, [2017-05-18T13:29:08.280259 #30508:2aff31f54f3c] DEBUG -- : MIQ(MiqServer#invoke_algorithm) Executing [start] algorithm: [used_swap_percent_lt_value]
+[----] D, [2017-05-18T13:29:08.280811 #30508:2aff31f54f3c] DEBUG -- : MIQ(MiqServer#invoke_algorithm) Executing [start] algorithm: [used_swap_percent_lt_value] completed with result: [true]
+[----] D, [2017-05-18T13:29:08.361183 #30636:2aff31f54f3c] DEBUG -- : EMS [10.0.0.106] as [admin] Garbage collection took 0.23922464599309023 seconds
+NOTICE:  identifier "MIQ 30618 Openstack::NetworkManager::Refresh[17123], s[1], de..." will be truncated to "MIQ 30618 Openstack::NetworkManager::Refresh[17123], s[1], de.."
+NOTICE:  identifier "MIQ 30645 StorageManager::SwiftManager::Refresh[17126], s[1],..." will be truncated to "MIQ 30645 StorageManager::SwiftManager::Refresh[17126], s[1],.."
+[----] I, [2017-05-18T13:29:08.413817 #30618:2aff31f54f3c]  INFO -- : ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker::Runner started. ID [17123], PID [30618], GUID [455d99a4-d8a7-4df5-a3bd-ce4da6581b39], Zone [default], Role [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket]
+[----] I, [2017-05-18T13:29:08.414038 #30618:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker::Runner#do_wait_for_worker_monitor) EMS [10.0.0.106] as [admin] Checking that worker monitor has started before doing work
+--
+[----] I, [2017-05-18T13:29:08.784615 #30508:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377728],  id: [], Zone: [default], Role: [], Server: [], Ident: [generic], Target id: [], Instance id: [], Task id: [], Command: [MiqEvent.raise_evm_event], Timeout: [600], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [["MiqServer", 1], "evm_worker_start", {:event_details=>"Worker started: ID [17127], PID [30664], GUID [f31c1294-68cb-4d14-884d-9257f13886f8]", :type=>"ManageIQ::Providers::Openstack::CloudManager::EventCatcher"}]
+[----] I, [2017-05-18T13:29:08.784700 #30508:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventCatcher#start) Worker started: ID [17127], PID [30664], GUID [f31c1294-68cb-4d14-884d-9257f13886f8]
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 90, name: "OSP11_oc Network Manager", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:18:48", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:18:48", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 89, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:08.797591 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] D, [2017-05-18T13:29:08.873600 #30664:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating authentication
+[----] D, [2017-05-18T13:29:08.873770 #30664:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating log
+[----] D, [2017-05-18T13:29:08.873934 #30664:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating server
+[----] D, [2017-05-18T13:29:08.874093 #30664:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating session
+/home/.../projects/manageiq/lib/vmdb/config/validator.rb:111: warning: constant ::Fixnum is deprecated
+/home/.../projects/manageiq/lib/vmdb/config/validator.rb:121: warning: constant ::Fixnum is deprecated
+[----] D, [2017-05-18T13:29:08.874217 #30664:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating smtp
+[----] D, [2017-05-18T13:29:08.874363 #30664:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating webservices
+/home/.../projects/manageiq/lib/vmdb/config/validator.rb:62: warning: constant ::Fixnum is deprecated
+--
+[----] I, [2017-05-18T13:29:09.965973 #30664:2aff31f54f3c]  INFO -- :   - scheduler.run_instance.scheduled
+[----] I, [2017-05-18T13:29:09.965996 #30664:2aff31f54f3c]  INFO -- :   - scheduler.run_instance.start
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 86, name: "OSP11_uc Network Manager", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:21:06", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:21:06", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 85, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:10.027955 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+NOTICE:  identifier "MIQ 30664 Openstack::CloudManager::EventCatcher[17127], s[1],..." will be truncated to "MIQ 30664 Openstack::CloudManager::EventCatcher[17127], s[1],.."
+[----] I, [2017-05-18T13:29:10.245017 #30664:2aff31f54f3c]  INFO -- : ManageIQ::Providers::Openstack::CloudManager::EventCatcher::Runner started. ID [17127], PID [30664], GUID [f31c1294-68cb-4d14-884d-9257f13886f8], Zone [default], Role [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket]
+[----] I, [2017-05-18T13:29:10.245080 #30664:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventCatcher::Runner#do_wait_for_worker_monitor) EMS [10.0.0.106] as [admin] Checking that worker monitor has started before doing work
+[----] I, [2017-05-18T13:29:10.247790 #30664:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventCatcher::Runner#do_wait_for_worker_monitor) EMS [10.0.0.106] as [admin] Starting work since worker monitor has started
+[----] I, [2017-05-18T13:29:10.248062 #30664:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventCatcher::Runner#start_event_monitor) EMS [10.0.0.106] as [admin] Validating Connection/Credentials
+[----] I, [2017-05-18T13:29:10.248301 #30664:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager#with_provider_connection) Connecting through ManageIQ::Providers::Openstack::CloudManager: [OSP11_oc]
+[----] I, [2017-05-18T13:29:10.248502 #30664:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventCatcher::Runner#start_event_monitor) EMS [10.0.0.106] as [admin] Starting Event Monitor Thread
+######## INIT openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:18:35", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:18:35", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>true, :recover_from_connection_close=>true, :events_monitor=>:ceilometer, :topics=>{:nova=>"notifications.*", :cinder=>"notifications.*", :glance=>"notifications.*", :heat=>"notifications.*"}, :duration=>10, :capacity=>50, :heartbeat=>30, :ceilometer=>{:event_types_regex=>"\\A(?!firewall|floatingip|gateway|net|port|router|subnet|security_group|vpn)"}, :recovery_attempts=>4, :client_ip=>"127.0.0.1"}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:106:in `event_monitor'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/event_catcher_mixin.rb:18:in `event_monitor_handle'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/event_catcher_mixin.rb:38:in `monitor_events'
+/home/.../projects/manageiq/app/models/manageiq/providers/base_manager/event_catcher/runner.rb:164:in `block in start_event_monitor'
+
+########
+NOTICE:  identifier "MIQ 30664 Openstack::CloudManager::EventCatcher[17127], s[1],..." will be truncated to "MIQ 30664 Openstack::CloudManager::EventCatcher[17127], s[1],.."
+[----] I, [2017-05-18T13:29:10.270960 #30664:2aff34bb4ba4]  INFO -- : Querying OpenStack for events newer than 2017-05-18 11:00:35 UTC...
+[----] D, [2017-05-18T13:29:10.271042 #30664:2aff34bb4ba4] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+[fog][WARNING] Unrecognized arguments: provider
+[----] D, [2017-05-18T13:29:10.650869 #30664:2aff34bb4ba4] DEBUG -- : Received a new OpenStack events batch: (before filtering)
+[----] D, [2017-05-18T13:29:10.651247 #30664:2aff34bb4ba4] DEBUG -- : [  <Fog::Event::OpenStack::Event
+    message_id="e902645d-63c6-4b86-adb8-04e4037ea7d4",
+    event_type="compute.instance.exists",
+    generated="2017-05-18T11:00:35.974152",
+--
+[----] I, [2017-05-18T13:29:10.944367 #30508:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377732],  id: [], Zone: [default], Role: [], Server: [], Ident: [generic], Target id: [], Instance id: [], Task id: [], Command: [MiqEvent.raise_evm_event], Timeout: [600], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [["MiqServer", 1], "evm_worker_start", {:event_details=>"Worker started: ID [17129], PID [30689], GUID [e68d4c68-db67-4faf-b37c-88169139dd2d]", :type=>"ManageIQ::Providers::Openstack::NetworkManager::EventCatcher"}]
+[----] I, [2017-05-18T13:29:10.944416 #30508:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::EventCatcher#start) Worker started: ID [17129], PID [30689], GUID [e68d4c68-db67-4faf-b37c-88169139dd2d]
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::InfraManager id: 85, name: "OSP11_uc", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:20:50", guid: "1f8d32e2-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::InfraManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:20:50", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:10.950999 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] D, [2017-05-18T13:29:11.032473 #30689:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating authentication
+[----] D, [2017-05-18T13:29:11.032710 #30689:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating log
+[----] D, [2017-05-18T13:29:11.032976 #30689:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating server
+[----] D, [2017-05-18T13:29:11.033211 #30689:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating session
+/home/.../projects/manageiq/lib/vmdb/config/validator.rb:111: warning: constant ::Fixnum is deprecated
+/home/.../projects/manageiq/lib/vmdb/config/validator.rb:121: warning: constant ::Fixnum is deprecated
+[----] D, [2017-05-18T13:29:11.033400 #30689:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating smtp
+[----] D, [2017-05-18T13:29:11.033629 #30689:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Validator#validate) Validating webservices
+/home/.../projects/manageiq/lib/vmdb/config/validator.rb:62: warning: constant ::Fixnum is deprecated
+--
+[----] I, [2017-05-18T13:29:12.191992 #30680:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::InfraManager#with_provider_connection) Connecting through ManageIQ::Providers::Openstack::InfraManager: [OSP11_uc]
+[----] I, [2017-05-18T13:29:12.192182 #30680:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::EventCatcher::Runner#start_event_monitor) EMS [192.168.24.1] as [admin] Starting Event Monitor Thread
+######## INIT openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 86, name: "OSP11_uc Network Manager", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:21:06", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:21:06", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 85, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>true, :recover_from_connection_close=>true, :events_monitor=>:ceilometer, :topics=>{:neutron=>"notifications.*"}, :duration=>10, :capacity=>50, :heartbeat=>30, :ceilometer=>{:event_types_regex=>"\\A(firewall|floatingip|gateway|net|port|router|subnet|security_group|vpn)"}, :recovery_attempts=>4, :client_ip=>"127.0.0.1"}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:106:in `event_monitor'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/event_catcher_mixin.rb:18:in `event_monitor_handle'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/event_catcher_mixin.rb:38:in `monitor_events'
+/home/.../projects/manageiq/app/models/manageiq/providers/base_manager/event_catcher/runner.rb:164:in `block in start_event_monitor'
+
+########
+[----] D, [2017-05-18T13:29:12.195216 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:29:12.195286 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] I, [2017-05-18T13:29:12.197252 #30508:2aff31f54f3c]  INFO -- : MIQ(MiqReportingWorker.sync_workers) Workers are being synchronized: Current #: [0], Desired #: [2]
+[----] D, [2017-05-18T13:29:12.197548 #30508:2aff31f54f3c] DEBUG -- : MIQ(MiqServer#invoke_algorithm) Invoke algorithm started with options: [{:type=>:start, :worker_name=>"MiqReportingWorker", :name=>:used_swap_percent_lt_value, :value=>60}]
+[----] D, [2017-05-18T13:29:12.197660 #30508:2aff31f54f3c] DEBUG -- : MIQ(MiqServer#invoke_algorithm) Executing [start] algorithm: [used_swap_percent_lt_value]
+[----] D, [2017-05-18T13:29:12.198045 #30508:2aff31f54f3c] DEBUG -- : MIQ(MiqServer#invoke_algorithm) Executing [start] algorithm: [used_swap_percent_lt_value] completed with result: [true]
+[----] D, [2017-05-18T13:29:12.198867 #30698:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Activator#activate) Activating session
+[----] I, [2017-05-18T13:29:12.200484 #30698:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::InfraManager::EventCatcher::Runner#sync_config) ID [17130], PID [30698], GUID [3d36a2df-3e7a-4994-9092-70d5ffdaeb12], Zone [default], Active Roles [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket], Assigned Roles [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket], Configuration:
+[----] I, [2017-05-18T13:29:12.201316 #30698:2aff31f54f3c]  INFO -- :   :count: 1
+[----] I, [2017-05-18T13:29:12.201452 #30698:2aff31f54f3c]  INFO -- :   :gc_interval: 900
+--
+[----] D, [2017-05-18T13:29:12.451282 #30737:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config::Activator#activate) Activating session
+[----] I, [2017-05-18T13:29:12.451376 #30689:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::EventCatcher::Runner#start_event_monitor) EMS [10.0.0.106] as [admin] Starting Event Monitor Thread
+######## INIT openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 90, name: "OSP11_oc Network Manager", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:18:48", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:18:48", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 89, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>true, :recover_from_connection_close=>true, :events_monitor=>:ceilometer, :topics=>{:neutron=>"notifications.*"}, :duration=>10, :capacity=>50, :heartbeat=>30, :ceilometer=>{:event_types_regex=>"\\A(firewall|floatingip|gateway|net|port|router|subnet|security_group|vpn)"}, :recovery_attempts=>4, :client_ip=>"127.0.0.1"}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:106:in `event_monitor'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/event_catcher_mixin.rb:18:in `event_monitor_handle'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/event_catcher_mixin.rb:38:in `monitor_events'
+/home/.../projects/manageiq/app/models/manageiq/providers/base_manager/event_catcher/runner.rb:164:in `block in start_event_monitor'
+
+########
+[----] I, [2017-05-18T13:29:12.453131 #30737:2aff31f54f3c]  INFO -- : MIQ(MiqReportingWorker::Runner#sync_config) ID [17134], PID [30737], GUID [edc0f4ce-6c9d-4b55-b7cb-f6d9d12a1a2a], Zone [default], Active Roles [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket], Assigned Roles [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket], Configuration:
+[----] I, [2017-05-18T13:29:12.453572 #30737:2aff31f54f3c]  INFO -- :   :count: 2
+[----] I, [2017-05-18T13:29:12.453608 #30737:2aff31f54f3c]  INFO -- :   :gc_interval: 900
+[----] I, [2017-05-18T13:29:12.453660 #30737:2aff31f54f3c]  INFO -- :   :heartbeat_freq: 10
+[----] I, [2017-05-18T13:29:12.453705 #30737:2aff31f54f3c]  INFO -- :   :heartbeat_timeout: 120
+[----] I, [2017-05-18T13:29:12.453752 #30737:2aff31f54f3c]  INFO -- :   :memory_threshold: 524288000
+[----] I, [2017-05-18T13:29:12.453795 #30737:2aff31f54f3c]  INFO -- :   :nice_delta: 7
+[----] I, [2017-05-18T13:29:12.453835 #30737:2aff31f54f3c]  INFO -- :   :parent_time_threshold: 180
+[----] I, [2017-05-18T13:29:12.453874 #30737:2aff31f54f3c]  INFO -- :   :poll: 3
+[----] I, [2017-05-18T13:29:12.453918 #30737:2aff31f54f3c]  INFO -- :   :poll_escalate_max: 30
+--
+[----] I, [2017-05-18T13:29:13.343273 #30698:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::InfraManager::EventCatcher::Runner#start_event_monitor) EMS [192.168.24.1] as [admin] Starting Event Monitor Thread
+[----] D, [2017-05-18T13:29:13.346203 #30689:2aff31f54f3c] DEBUG -- : EMS [10.0.0.106] as [admin] Garbage collection took 0.32602193699858617 seconds
+######## INIT openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::InfraManager id: 85, name: "OSP11_uc", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:20:50", guid: "1f8d32e2-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::InfraManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:20:50", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>true, :recover_from_connection_close=>true, :events_monitor=>:ceilometer, :topics=>{:nova=>"notifications.*", :cinder=>"notifications.*", :glance=>"notifications.*", :heat=>"notifications.*", :ironic=>"notifications.*"}, :duration=>10, :capacity=>50, :heartbeat=>30, :ceilometer=>{:event_types_regex=>"\\A(?!firewall|floatingip|gateway|net|port|router|subnet|security_group|vpn)"}, :recovery_attempts=>4, :client_ip=>"127.0.0.1"}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:106:in `event_monitor'
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:11:in `new'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/event_catcher_mixin.rb:18:in `event_monitor_handle'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/event_catcher_mixin.rb:38:in `monitor_events'
+/home/.../projects/manageiq/app/models/manageiq/providers/base_manager/event_catcher/runner.rb:164:in `block in start_event_monitor'
+
+########
+[----] D, [2017-05-18T13:29:13.355260 #30680:2aff31f54f3c] DEBUG -- : EMS [192.168.24.1] as [admin] Garbage collection took 0.40486103401053697 seconds
+NOTICE:  identifier "MIQ 30698 Openstack::InfraManager::EventCatcher[17130], s[1],..." will be truncated to "MIQ 30698 Openstack::InfraManager::EventCatcher[17130], s[1],.."
+[----] I, [2017-05-18T13:29:13.364191 #30749:2aff31f54f3c]  INFO -- : MiqWebsocketWorker::Runner started. ID [17135], PID [30749], GUID [6953a658-7feb-432d-b11d-29f5566a8af3], Zone [default], Role [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket]
+[----] I, [2017-05-18T13:29:13.373288 #30749:2aff34b088f4]  INFO -- : MIQ(MiqWebsocketWorker::Runner#worker_monitor_drb) MIQ(MiqWebsocketWorker::Runner) Initializing DRb Connection to MiqServer with ID=[1], NAME=[EVM], PID=[30508], GUID=[2b1ad006-4a3f-11e5-b078-54ee75346316] DRb URI=[druby://127.0.0.1:46207]
+[----] I, [2017-05-18T13:29:13.381674 #30698:2aff34b64154]  INFO -- : Querying OpenStack for events newer than 2017-05-18 11:00:30 UTC...
+[----] D, [2017-05-18T13:29:13.381784 #30698:2aff34b64154] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+[----] I, [2017-05-18T13:29:13.422126 #30759:2aff31f54f3c]  INFO -- : MiqUiWorker::Runner started. ID [17136], PID [30759], GUID [d3fc4b35-c734-49b9-9001-8f7d373ab1a8], Zone [default], Role [automate,database_operations,database_owner,ems_inventory,ems_operations,event,reporting,scheduler,smartstate,user_interface,web_services,websocket]
+[----] I, [2017-05-18T13:29:13.437650 #30759:2aff34afb58c]  INFO -- : MIQ(MiqUiWorker::Runner#worker_monitor_drb) MIQ(MiqUiWorker::Runner) Initializing DRb Connection to MiqServer with ID=[1], NAME=[EVM], PID=[30508], GUID=[2b1ad006-4a3f-11e5-b078-54ee75346316] DRb URI=[druby://127.0.0.1:46207]
+[----] I, [2017-05-18T13:29:13.453832 #30759:2aff31f54f3c]  INFO -- : MIQ(MiqUiWorker::Runner.start_rails_server) With options: {:Host=>"0.0.0.0", :environment=>"development", :server=>"puma", :Port=>3000, :pid=>"/home/.../projects/manageiq/tmp/pids/rails_server.3000.pid"}
+--
+[----] I, [2017-05-18T13:29:23.308661 #30645:2aff31f54f3c]  INFO -- : MIQ(MiqQueue#delivered) Message id: [377727], State: [error], Delivered in [4.301275586] seconds
+[----] W, [2017-05-18T13:29:23.308958 #30645:2aff31f54f3c]  WARN -- : MIQ(MiqQueue#m_callback) Message id: [377727], Instance: [MiqTask], does not respond to Method: [queue_callback], skipping
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:18:35", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:18:35", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:11:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:23.961766 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 90, name: "OSP11_oc Network Manager", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:18:48", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:18:48", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 89, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:25.447360 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:29:25.653205 #30664:2aff34bb4ba4]  INFO -- : Querying OpenStack for events newer than 2017-05-18T11:00:35.974152...
+[----] D, [2017-05-18T13:29:25.733625 #30664:2aff34bb4ba4] DEBUG -- : Received a new OpenStack events batch: (before filtering)
+[----] D, [2017-05-18T13:29:25.733838 #30664:2aff34bb4ba4] DEBUG -- : [  <Fog::Event::OpenStack::Event
+    message_id="e902645d-63c6-4b86-adb8-04e4037ea7d4",
+    event_type="compute.instance.exists",
+    generated="2017-05-18T11:00:35.974152",
+    raw={},
+    traits=[{"type"=>"datetime", "name"=>"audit_period_beginning", "value"=>"2017-05-18T10:00:00"}, {"type"=>"datetime", "name"=>"audit_period_ending", "value"=>"2017-05-18T11:00:00"}, {"type"=>"integer", "name"=>"disk_gb", "value"=>"1"}, {"type"=>"integer", "name"=>"ephemeral_gb", "value"=>"0"}, {"type"=>"string", "name"=>"host", "value"=>"compute-1.localdomain"}, {"type"=>"string", "name"=>"instance_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"string", "name"=>"instance_type", "value"=>"m1.tiny"}, {"type"=>"integer", "name"=>"instance_type_id", "value"=>"1"}, {"type"=>"datetime", "name"=>"launched_at", "value"=>"2017-04-26T18:39:26"}, {"type"=>"integer", "name"=>"memory_mb", "value"=>"512"}, {"type"=>"string", "name"=>"project_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"request_id", "value"=>"req-0b7b84ca-c5c8-460e-9c48-4cc972523d1e"}, {"type"=>"string", "name"=>"resource_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"integer", "name"=>"root_gb", "value"=>"1"}, {"type"=>"string", "name"=>"service", "value"=>"compute"}, {"type"=>"string", "name"=>"state", "value"=>"active"}, {"type"=>"string", "name"=>"tenant_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"user_id", "value"=>"a07a33c69fea44a188929749b8aaac65"}, {"type"=>"integer", "name"=>"vcpus", "value"=>"1"}]
+  >]
+--
+[----] I, [2017-05-18T13:29:25.915752 #30664:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377804],  id: [], Zone: [default], Role: [event], Server: [], Ident: [ems], Target id: [89], Instance id: [], Task id: [], Command: [EmsEvent.add], Timeout: [600], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [{:event_type=>"compute.instance.exists", :source=>"OPENSTACK", :message=>nil, :timestamp=>"2017-05-18T11:00:35.974152", :username=>nil, :full_data=>{:content=>{"message_id"=>"e902645d-63c6-4b86-adb8-04e4037ea7d4", "event_type"=>"compute.instance.exists", "timestamp"=>"2017-05-18T11:00:35.974152", "payload"=>{"audit_period_beginning"=>"2017-05-18T10:00:00", "audit_period_ending"=>"2017-05-18T11:00:00", "disk_gb"=>"1", "ephemeral_gb"=>"0", "host"=>"compute-1.localdomain", "instance_id"=>"9decfa23-3010-4f02-9020-564ba23663a0", "instance_type"=>"m1.tiny", "instance_type_id"=>"1", "launched_at"=>"2017-04-26T18:39:26", "memory_mb"=>"512", "project_id"=>"e042d8bbdf3a446392d1c068009e7d21", "request_id"=>"req-0b7b84ca-c5c8-460e-9c48-4cc972523d1e", "resource_id"=>"9decfa23-3010-4f02-9020-564ba23663a0", "root_gb"=>"1", "service"=>"compute", "state"=>"active", "tenant_id"=>"e042d8bbdf3a446392d1c068009e7d21", "user_id"=>"a07a33c69fea44a188929749b8aaac65", "vcpus"=>"1"}}, :context=>{}, :user_id=>nil, :priority=>nil, :content_type=>nil}, :ems_id=>89, :vm_ems_ref=>"9decfa23-3010-4f02-9020-564ba23663a0", :host_ems_ref=>"compute-1.localdomain"}]
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 86, name: "OSP11_uc Network Manager", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:29:20", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:20", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 85, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:26.992140 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::InfraManager id: 85, name: "OSP11_uc", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:20:50", guid: "1f8d32e2-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::InfraManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:20:50", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:27.645447 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:29:27.896770 #30680:2aff34b761d8]  INFO -- : Querying OpenStack for events newer than 2017-04-20T14:09:10.725082...
+[----] I, [2017-05-18T13:29:27.985961 #30689:2aff34bda69c]  INFO -- : Querying OpenStack for events newer than 2017-04-20T14:16:33.893159...
+[----] D, [2017-05-18T13:29:28.122829 #30680:2aff34b761d8] DEBUG -- : Received a new OpenStack events batch: (before filtering)
+[----] D, [2017-05-18T13:29:28.125793 #30680:2aff34b761d8] DEBUG -- : [  <Fog::Event::OpenStack::Event
+    message_id="18999b61-b508-487f-945c-8f138a7ab9de",
+    event_type="identity.user.created",
+    generated="2017-04-20T14:09:10.725082",
+    raw={},
+    traits=[{"type"=>"string", "name"=>"domain_id", "value"=>"c2bcb8fd75a7471f8e52c59850d63171"}, {"type"=>"string", "name"=>"initiator_id", "value"=>"603bf1a467df4ebbb1c63f9df5df1e5a"}, {"type"=>"string", "name"=>"resource_id", "value"=>"81cdc77a1e89452196ea0fcfc0578e36"}, {"type"=>"string", "name"=>"service", "value"=>"identity.undercloud-0.redhat.local"}]
+--
+[----] I, [2017-05-18T13:29:38.596786 #30618:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::Refresher#refresh) EMS: [OSP11_oc Network Manager], id: [90]   ManageIQ::Providers::Openstack::NetworkManager [OSP11_oc Network Manager] id [90]
+[----] I, [2017-05-18T13:29:38.597308 #30618:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::NetworkManager::Refresher#refresh_targets_for_ems) EMS: [OSP11_oc Network Manager], id: [90] Refreshing target ManageIQ::Providers::Openstack::NetworkManager [OSP11_oc Network Manager] id [90]...
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:31", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:31", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:11:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:40.200337 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:29:40.734189 #30664:2aff34bb4ba4]  INFO -- : Querying OpenStack for events newer than 2017-05-18T11:00:35.974152...
+[----] D, [2017-05-18T13:29:40.816544 #30664:2aff34bb4ba4] DEBUG -- : Received a new OpenStack events batch: (before filtering)
+[----] D, [2017-05-18T13:29:40.816744 #30664:2aff34bb4ba4] DEBUG -- : [  <Fog::Event::OpenStack::Event
+    message_id="e902645d-63c6-4b86-adb8-04e4037ea7d4",
+    event_type="compute.instance.exists",
+    generated="2017-05-18T11:00:35.974152",
+    raw={},
+    traits=[{"type"=>"datetime", "name"=>"audit_period_beginning", "value"=>"2017-05-18T10:00:00"}, {"type"=>"datetime", "name"=>"audit_period_ending", "value"=>"2017-05-18T11:00:00"}, {"type"=>"integer", "name"=>"disk_gb", "value"=>"1"}, {"type"=>"integer", "name"=>"ephemeral_gb", "value"=>"0"}, {"type"=>"string", "name"=>"host", "value"=>"compute-1.localdomain"}, {"type"=>"string", "name"=>"instance_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"string", "name"=>"instance_type", "value"=>"m1.tiny"}, {"type"=>"integer", "name"=>"instance_type_id", "value"=>"1"}, {"type"=>"datetime", "name"=>"launched_at", "value"=>"2017-04-26T18:39:26"}, {"type"=>"integer", "name"=>"memory_mb", "value"=>"512"}, {"type"=>"string", "name"=>"project_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"request_id", "value"=>"req-0b7b84ca-c5c8-460e-9c48-4cc972523d1e"}, {"type"=>"string", "name"=>"resource_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"integer", "name"=>"root_gb", "value"=>"1"}, {"type"=>"string", "name"=>"service", "value"=>"compute"}, {"type"=>"string", "name"=>"state", "value"=>"active"}, {"type"=>"string", "name"=>"tenant_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"user_id", "value"=>"a07a33c69fea44a188929749b8aaac65"}, {"type"=>"integer", "name"=>"vcpus", "value"=>"1"}]
+  >]
+--
+[----] I, [2017-05-18T13:29:40.932891 #30664:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377811],  id: [], Zone: [default], Role: [event], Server: [], Ident: [ems], Target id: [89], Instance id: [], Task id: [], Command: [EmsEvent.add], Timeout: [600], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [{:event_type=>"compute.instance.exists", :source=>"OPENSTACK", :message=>nil, :timestamp=>"2017-05-18T11:00:35.974152", :username=>nil, :full_data=>{:content=>{"message_id"=>"e902645d-63c6-4b86-adb8-04e4037ea7d4", "event_type"=>"compute.instance.exists", "timestamp"=>"2017-05-18T11:00:35.974152", "payload"=>{"audit_period_beginning"=>"2017-05-18T10:00:00", "audit_period_ending"=>"2017-05-18T11:00:00", "disk_gb"=>"1", "ephemeral_gb"=>"0", "host"=>"compute-1.localdomain", "instance_id"=>"9decfa23-3010-4f02-9020-564ba23663a0", "instance_type"=>"m1.tiny", "instance_type_id"=>"1", "launched_at"=>"2017-04-26T18:39:26", "memory_mb"=>"512", "project_id"=>"e042d8bbdf3a446392d1c068009e7d21", "request_id"=>"req-0b7b84ca-c5c8-460e-9c48-4cc972523d1e", "resource_id"=>"9decfa23-3010-4f02-9020-564ba23663a0", "root_gb"=>"1", "service"=>"compute", "state"=>"active", "tenant_id"=>"e042d8bbdf3a446392d1c068009e7d21", "user_id"=>"a07a33c69fea44a188929749b8aaac65", "vcpus"=>"1"}}, :context=>{}, :user_id=>nil, :priority=>nil, :content_type=>nil}, :ems_id=>89, :vm_ems_ref=>"9decfa23-3010-4f02-9020-564ba23663a0", :host_ems_ref=>"compute-1.localdomain"}]
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 86, name: "OSP11_uc Network Manager", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:29:20", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:20", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 85, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:41.537559 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 90, name: "OSP11_oc Network Manager", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:28", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:28", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 89, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:42.125117 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:29:42.961350 #30636:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::CinderManager::RefreshWorker::Runner#get_message_via_drb) Message id: [377807], MiqWorker id: [17125], Zone: [default], Role: [ems_inventory], Server: [], Ident: [ems_87], Target id: [], Instance id: [], Task id: [], Command: [EmsRefresh.refresh], Timeout: [7200], Priority: [100], State: [dequeue], Deliver On: [], Data: [], Args: [[["ManageIQ::Providers::StorageManager::CinderManager", 87]]], Dequeued in: [11.717572926] seconds
+[----] I, [2017-05-18T13:29:42.961424 #30636:2aff31f54f3c]  INFO -- : MIQ(MiqQueue#deliver) Message id: [377807], Delivering...
+[----] I, [2017-05-18T13:29:42.964411 #30636:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::CinderManager::Refresher#refresh) Refreshing all targets...
+[----] I, [2017-05-18T13:29:42.964465 #30636:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::CinderManager::Refresher#refresh) EMS: [OSP11_oc Cinder Manager], id: [87] Refreshing targets for EMS...
+[----] I, [2017-05-18T13:29:42.964503 #30636:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::CinderManager::Refresher#refresh) EMS: [OSP11_oc Cinder Manager], id: [87]   ManageIQ::Providers::StorageManager::CinderManager [OSP11_oc Cinder Manager] id [87]
+[----] I, [2017-05-18T13:29:42.965925 #30636:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::CinderManager::Refresher#refresh_targets_for_ems) EMS: [OSP11_oc Cinder Manager], id: [87] Refreshing target ManageIQ::Providers::StorageManager::CinderManager [OSP11_oc Cinder Manager] id [87]...
+[----] I, [2017-05-18T13:29:43.126033 #30680:2aff34b761d8]  INFO -- : Querying OpenStack for events newer than 2017-04-20T14:12:46.163254...
+[fog][WARNING] Unrecognized arguments: provider
+[----] I, [2017-05-18T13:29:43.309259 #30689:2aff34bda69c]  INFO -- : Querying OpenStack for events newer than 2017-04-29T03:00:07.973030...
+--
+[----] I, [2017-05-18T13:29:43.338935 #30645:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::SwiftManager::Refresher#refresh) EMS: [OSP11_oc Swift Manager], id: [88]   ManageIQ::Providers::StorageManager::SwiftManager [OSP11_oc Swift Manager] id [88]
+[----] I, [2017-05-18T13:29:43.340590 #30645:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::SwiftManager::Refresher#refresh_targets_for_ems) EMS: [OSP11_oc Swift Manager], id: [88] Refreshing target ManageIQ::Providers::StorageManager::SwiftManager [OSP11_oc Swift Manager] id [88]...
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::InfraManager id: 85, name: "OSP11_uc", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:20:50", guid: "1f8d32e2-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::InfraManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:20:50", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:43.511851 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] D, [2017-05-18T13:29:43.708772 #30689:2aff34bda69c] DEBUG -- : Received a new OpenStack events batch: (before filtering)
+[----] D, [2017-05-18T13:29:43.715662 #30689:2aff34bda69c] DEBUG -- : [  <Fog::Event::OpenStack::Event
+    message_id="b459eeee-bc06-4c41-8c02-678cf63d6e00",
+    event_type="compute.instance.exists",
+    generated="2017-04-29T03:00:07.973030",
+    raw={},
+    traits=[{"type"=>"datetime", "name"=>"audit_period_beginning", "value"=>"2017-04-29T02:00:00"}, {"type"=>"datetime", "name"=>"audit_period_ending", "value"=>"2017-04-29T03:00:00"}, {"type"=>"integer", "name"=>"disk_gb", "value"=>"1"}, {"type"=>"integer", "name"=>"ephemeral_gb", "value"=>"0"}, {"type"=>"string", "name"=>"host", "value"=>"compute-1.localdomain"}, {"type"=>"string", "name"=>"instance_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"string", "name"=>"instance_type", "value"=>"m1.tiny"}, {"type"=>"integer", "name"=>"instance_type_id", "value"=>"1"}, {"type"=>"datetime", "name"=>"launched_at", "value"=>"2017-04-26T18:39:26"}, {"type"=>"integer", "name"=>"memory_mb", "value"=>"512"}, {"type"=>"string", "name"=>"project_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"request_id", "value"=>"req-91b3056d-2d52-4315-8288-4a843b3bba53"}, {"type"=>"string", "name"=>"resource_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"integer", "name"=>"root_gb", "value"=>"1"}, {"type"=>"string", "name"=>"service", "value"=>"compute"}, {"type"=>"string", "name"=>"state", "value"=>"active"}, {"type"=>"string", "name"=>"tenant_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"user_id", "value"=>"a07a33c69fea44a188929749b8aaac65"}, {"type"=>"integer", "name"=>"vcpus", "value"=>"1"}]
+  >,   <Fog::Event::OpenStack::Event
+    message_id="e7f1965e-4048-4f13-8a6a-6c40f81621f4",
+--
+[----] I, [2017-05-18T13:29:52.865538 #30575:2aff31f54f3c]  INFO -- : MIQ(MiqScheduleWorker::Runner#do_work) Number of scheduled items to be processed: 1.
+[----] I, [2017-05-18T13:29:52.886854 #30575:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377817],  id: [], Zone: [default], Role: [smartstate], Server: [], Ident: [generic], Target id: [], Instance id: [], Task id: [job_dispatcher], Command: [JobProxyDispatcher.dispatch], Timeout: [600], Priority: [20], State: [ready], Deliver On: [], Data: [], Args: []
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:31", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:31", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:11:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:55.368877 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:29:55.817120 #30664:2aff34bb4ba4]  INFO -- : Querying OpenStack for events newer than 2017-05-18T11:00:35.974152...
+[----] D, [2017-05-18T13:29:55.891584 #30664:2aff34bb4ba4] DEBUG -- : Received a new OpenStack events batch: (before filtering)
+[----] D, [2017-05-18T13:29:55.891786 #30664:2aff34bb4ba4] DEBUG -- : [  <Fog::Event::OpenStack::Event
+    message_id="e902645d-63c6-4b86-adb8-04e4037ea7d4",
+    event_type="compute.instance.exists",
+    generated="2017-05-18T11:00:35.974152",
+    raw={},
+    traits=[{"type"=>"datetime", "name"=>"audit_period_beginning", "value"=>"2017-05-18T10:00:00"}, {"type"=>"datetime", "name"=>"audit_period_ending", "value"=>"2017-05-18T11:00:00"}, {"type"=>"integer", "name"=>"disk_gb", "value"=>"1"}, {"type"=>"integer", "name"=>"ephemeral_gb", "value"=>"0"}, {"type"=>"string", "name"=>"host", "value"=>"compute-1.localdomain"}, {"type"=>"string", "name"=>"instance_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"string", "name"=>"instance_type", "value"=>"m1.tiny"}, {"type"=>"integer", "name"=>"instance_type_id", "value"=>"1"}, {"type"=>"datetime", "name"=>"launched_at", "value"=>"2017-04-26T18:39:26"}, {"type"=>"integer", "name"=>"memory_mb", "value"=>"512"}, {"type"=>"string", "name"=>"project_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"request_id", "value"=>"req-0b7b84ca-c5c8-460e-9c48-4cc972523d1e"}, {"type"=>"string", "name"=>"resource_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"integer", "name"=>"root_gb", "value"=>"1"}, {"type"=>"string", "name"=>"service", "value"=>"compute"}, {"type"=>"string", "name"=>"state", "value"=>"active"}, {"type"=>"string", "name"=>"tenant_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"user_id", "value"=>"a07a33c69fea44a188929749b8aaac65"}, {"type"=>"integer", "name"=>"vcpus", "value"=>"1"}]
+  >]
+--
+[----] I, [2017-05-18T13:29:55.944807 #30664:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377818],  id: [], Zone: [default], Role: [event], Server: [], Ident: [ems], Target id: [89], Instance id: [], Task id: [], Command: [EmsEvent.add], Timeout: [600], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [{:event_type=>"compute.instance.exists", :source=>"OPENSTACK", :message=>nil, :timestamp=>"2017-05-18T11:00:35.974152", :username=>nil, :full_data=>{:content=>{"message_id"=>"e902645d-63c6-4b86-adb8-04e4037ea7d4", "event_type"=>"compute.instance.exists", "timestamp"=>"2017-05-18T11:00:35.974152", "payload"=>{"audit_period_beginning"=>"2017-05-18T10:00:00", "audit_period_ending"=>"2017-05-18T11:00:00", "disk_gb"=>"1", "ephemeral_gb"=>"0", "host"=>"compute-1.localdomain", "instance_id"=>"9decfa23-3010-4f02-9020-564ba23663a0", "instance_type"=>"m1.tiny", "instance_type_id"=>"1", "launched_at"=>"2017-04-26T18:39:26", "memory_mb"=>"512", "project_id"=>"e042d8bbdf3a446392d1c068009e7d21", "request_id"=>"req-0b7b84ca-c5c8-460e-9c48-4cc972523d1e", "resource_id"=>"9decfa23-3010-4f02-9020-564ba23663a0", "root_gb"=>"1", "service"=>"compute", "state"=>"active", "tenant_id"=>"e042d8bbdf3a446392d1c068009e7d21", "user_id"=>"a07a33c69fea44a188929749b8aaac65", "vcpus"=>"1"}}, :context=>{}, :user_id=>nil, :priority=>nil, :content_type=>nil}, :ems_id=>89, :vm_ems_ref=>"9decfa23-3010-4f02-9020-564ba23663a0", :host_ems_ref=>"compute-1.localdomain"}]
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 90, name: "OSP11_oc Network Manager", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:44", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:44", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 89, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:56.499829 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 86, name: "OSP11_uc Network Manager", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:29:20", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:20", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 85, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:57.635574 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::InfraManager id: 85, name: "OSP11_uc", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:20:50", guid: "1f8d32e2-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::InfraManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:20:50", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:29:58.202115 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+[----] I, [2017-05-18T13:29:58.716099 #30689:2aff34bda69c]  INFO -- : Querying OpenStack for events newer than 2017-05-03T06:00:07.671915...
+[----] D, [2017-05-18T13:29:58.810160 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:29:58.810228 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:29:58.811995 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:29:58.812031 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:29:58.814400 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:29:58.814436 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:29:58.815986 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+--
+    traits=[{"type"=>"string", "name"=>"resource_id", "value"=>"e1dfee43c0a24f49931b8a74a7a5acd0"}, {"type"=>"string", "name"=>"service", "value"=>"identity.controller-0.localdomain"}]
+  >]
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:31", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:31", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:11:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:14.754362 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:30:14.836648 #30680:2aff34b761d8]  INFO -- : Querying OpenStack for events newer than 2017-04-22T07:00:17.013938...
+[----] D, [2017-05-18T13:30:15.229217 #30680:2aff34b761d8] DEBUG -- : Received a new OpenStack events batch: (before filtering)
+[----] D, [2017-05-18T13:30:15.236020 #30680:2aff34b761d8] DEBUG -- : [  <Fog::Event::OpenStack::Event
+    message_id="fa4995ca-d155-475b-8fcc-607d58200697",
+    event_type="compute.instance.exists",
+    generated="2017-04-22T07:00:17.013938",
+    raw={},
+    traits=[{"type"=>"datetime", "name"=>"audit_period_beginning", "value"=>"2017-04-22T06:00:00"}, {"type"=>"datetime", "name"=>"audit_period_ending", "value"=>"2017-04-22T07:00:00"}, {"type"=>"integer", "name"=>"disk_gb", "value"=>"27"}, {"type"=>"integer", "name"=>"ephemeral_gb", "value"=>"0"}, {"type"=>"string", "name"=>"host", "value"=>"undercloud-0.redhat.local"}, {"type"=>"string", "name"=>"instance_id", "value"=>"df51391d-7701-4e09-9e7c-f660d94c68af"}, {"type"=>"string", "name"=>"instance_type", "value"=>"controller"}, {"type"=>"integer", "name"=>"instance_type_id", "value"=>"8"}, {"type"=>"datetime", "name"=>"launched_at", "value"=>"2017-04-20T14:07:16"}, {"type"=>"integer", "name"=>"memory_mb", "value"=>"15886"}, {"type"=>"string", "name"=>"project_id", "value"=>"85c5c51c028941f191b8c839400160a2"}, {"type"=>"string", "name"=>"request_id", "value"=>"req-effdfe87-a223-42d3-b326-ec57e79c46eb"}, {"type"=>"string", "name"=>"resource_id", "value"=>"df51391d-7701-4e09-9e7c-f660d94c68af"}, {"type"=>"integer", "name"=>"root_gb", "value"=>"27"}, {"type"=>"string", "name"=>"service", "value"=>"compute"}, {"type"=>"string", "name"=>"state", "value"=>"active"}, {"type"=>"string", "name"=>"tenant_id", "value"=>"85c5c51c028941f191b8c839400160a2"}, {"type"=>"string", "name"=>"user_id", "value"=>"dc605b88d2b24eac87fcde01a4929221"}, {"type"=>"integer", "name"=>"vcpus", "value"=>"1"}]
+  >,   <Fog::Event::OpenStack::Event
+--
+  >]
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 90, name: "OSP11_oc Network Manager", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:44", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:44", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 89, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:15.897819 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 86, name: "OSP11_uc Network Manager", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:29:20", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:20", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 85, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:17.005249 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::InfraManager id: 85, name: "OSP11_uc", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:20:50", guid: "1f8d32e2-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::InfraManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:20:50", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:17.633680 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+[----] I, [2017-05-18T13:30:18.352097 #30508:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::CinderManager::EventCatcher.sync_workers) Workers are being synchronized: Current: [], Desired: ["ems_87"]
+[----] D, [2017-05-18T13:30:18.352438 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:18.352469 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:18.353326 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:18.353365 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:18.354019 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:18.354047 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:18.354619 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+--
+[----] I, [2017-05-18T13:30:32.302532 #30716:2aff31f54f3c]  INFO -- : MIQ(MiqQueue#deliver) Message id: [377831], Delivering...
+[----] I, [2017-05-18T13:30:32.304571 #30716:2aff31f54f3c]  INFO -- : MIQ(MiqQueue#delivered) Message id: [377831], State: [ok], Delivered in [0.002059481] seconds
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:31", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:31", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:11:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:34.445826 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 90, name: "OSP11_oc Network Manager", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:44", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:44", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 89, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:35.579332 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 86, name: "OSP11_uc Network Manager", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:29:20", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:20", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 85, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:36.718452 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::InfraManager id: 85, name: "OSP11_uc", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:20:50", guid: "1f8d32e2-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::InfraManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:20:50", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:37.337983 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+[----] D, [2017-05-18T13:30:37.937483 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:37.937526 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:37.939603 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:37.939640 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:37.942340 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:37.942377 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:37.944481 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:37.944511 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+--
+[----] I, [2017-05-18T13:30:53.008674 #30575:2aff31f54f3c]  INFO -- : MIQ(MiqScheduleWorker::Runner#do_work) Number of scheduled items to be processed: 1.
+[----] I, [2017-05-18T13:30:53.017500 #30575:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377836],  id: [], Zone: [default], Role: [smartstate], Server: [], Ident: [generic], Target id: [], Instance id: [], Task id: [job_dispatcher], Command: [JobProxyDispatcher.dispatch], Timeout: [600], Priority: [20], State: [ready], Deliver On: [], Data: [], Args: []
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::CloudManager id: 89, name: "OSP11_oc", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:31", guid: "55d6e69a-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::CloudManager", api_version: "v3", uid_ems: "default", host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:31", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:11:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/cloud_manager/event_catcher.rb:10:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:53.841569 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 90, name: "OSP11_oc Network Manager", created_on: "2017-04-21 07:44:22", updated_on: "2017-05-18 11:29:44", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: "regionOne", last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:44", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 89, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: false, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:55.032415 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+[----] I, [2017-05-18T13:30:55.982889 #30664:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventCatcher::Runner#queue_event) EMS [10.0.0.106] as [admin] Caught event [compute.instance.exists]
+[----] D, [2017-05-18T13:30:55.982982 #30664:2aff31f54f3c] DEBUG -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventParser.event_to_hash) ems_id: [89] event: [compute.instance.exists]
+[----] I, [2017-05-18T13:30:56.001561 #30664:2aff31f54f3c]  INFO -- : MIQ(MiqQueue.put) Message id: [377837],  id: [], Zone: [default], Role: [event], Server: [], Ident: [ems], Target id: [89], Instance id: [], Task id: [], Command: [EmsEvent.add], Timeout: [600], Priority: [100], State: [ready], Deliver On: [], Data: [], Args: [{:event_type=>"compute.instance.exists", :source=>"OPENSTACK", :message=>nil, :timestamp=>"2017-05-18T11:00:35.974152", :username=>nil, :full_data=>{:content=>{"message_id"=>"e902645d-63c6-4b86-adb8-04e4037ea7d4", "event_type"=>"compute.instance.exists", "timestamp"=>"2017-05-18T11:00:35.974152", "payload"=>{"audit_period_beginning"=>"2017-05-18T10:00:00", "audit_period_ending"=>"2017-05-18T11:00:00", "disk_gb"=>"1", "ephemeral_gb"=>"0", "host"=>"compute-1.localdomain", "instance_id"=>"9decfa23-3010-4f02-9020-564ba23663a0", "instance_type"=>"m1.tiny", "instance_type_id"=>"1", "launched_at"=>"2017-04-26T18:39:26", "memory_mb"=>"512", "project_id"=>"e042d8bbdf3a446392d1c068009e7d21", "request_id"=>"req-0b7b84ca-c5c8-460e-9c48-4cc972523d1e", "resource_id"=>"9decfa23-3010-4f02-9020-564ba23663a0", "root_gb"=>"1", "service"=>"compute", "state"=>"active", "tenant_id"=>"e042d8bbdf3a446392d1c068009e7d21", "user_id"=>"a07a33c69fea44a188929749b8aaac65", "vcpus"=>"1"}}, :context=>{}, :user_id=>nil, :priority=>nil, :content_type=>nil}, :ems_id=>89, :vm_ems_ref=>"9decfa23-3010-4f02-9020-564ba23663a0", :host_ems_ref=>"compute-1.localdomain"}]
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::NetworkManager id: 86, name: "OSP11_uc Network Manager", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:29:20", guid: nil, zone_id: 1, type: "ManageIQ::Providers::Openstack::NetworkManager", api_version: nil, uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:29:20", provider_id: nil, realm: nil, tenant_id: 1, project: nil, parent_ems_id: 85, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/network_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:56.110224 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[----] I, [2017-05-18T13:30:56.136812 #30664:2aff34bb4ba4]  INFO -- : Querying OpenStack for events newer than 2017-05-18T11:00:35.974152...
+[----] D, [2017-05-18T13:30:56.213697 #30664:2aff34bb4ba4] DEBUG -- : Received a new OpenStack events batch: (before filtering)
+[----] D, [2017-05-18T13:30:56.213977 #30664:2aff34bb4ba4] DEBUG -- : [  <Fog::Event::OpenStack::Event
+    message_id="e902645d-63c6-4b86-adb8-04e4037ea7d4",
+    event_type="compute.instance.exists",
+    generated="2017-05-18T11:00:35.974152",
+    raw={},
+    traits=[{"type"=>"datetime", "name"=>"audit_period_beginning", "value"=>"2017-05-18T10:00:00"}, {"type"=>"datetime", "name"=>"audit_period_ending", "value"=>"2017-05-18T11:00:00"}, {"type"=>"integer", "name"=>"disk_gb", "value"=>"1"}, {"type"=>"integer", "name"=>"ephemeral_gb", "value"=>"0"}, {"type"=>"string", "name"=>"host", "value"=>"compute-1.localdomain"}, {"type"=>"string", "name"=>"instance_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"string", "name"=>"instance_type", "value"=>"m1.tiny"}, {"type"=>"integer", "name"=>"instance_type_id", "value"=>"1"}, {"type"=>"datetime", "name"=>"launched_at", "value"=>"2017-04-26T18:39:26"}, {"type"=>"integer", "name"=>"memory_mb", "value"=>"512"}, {"type"=>"string", "name"=>"project_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"request_id", "value"=>"req-0b7b84ca-c5c8-460e-9c48-4cc972523d1e"}, {"type"=>"string", "name"=>"resource_id", "value"=>"9decfa23-3010-4f02-9020-564ba23663a0"}, {"type"=>"integer", "name"=>"root_gb", "value"=>"1"}, {"type"=>"string", "name"=>"service", "value"=>"compute"}, {"type"=>"string", "name"=>"state", "value"=>"active"}, {"type"=>"string", "name"=>"tenant_id", "value"=>"e042d8bbdf3a446392d1c068009e7d21"}, {"type"=>"string", "name"=>"user_id", "value"=>"a07a33c69fea44a188929749b8aaac65"}, {"type"=>"integer", "name"=>"vcpus", "value"=>"1"}]
+  >]
+--
+[----] D, [2017-05-18T13:30:56.214310 #30664:2aff34bb4ba4] DEBUG -- : MIQ(ManageIQ::Providers::Openstack::CloudManager::EventCatcher::Runner#monitor_events) EMS [10.0.0.106] as [admin] Received events ["compute.instance.exists"]
+[fog][WARNING] Unrecognized arguments: provider
+######## AVAILABLE? openstack event monitor:
+{:ems=>#<ManageIQ::Providers::Openstack::InfraManager id: 85, name: "OSP11_uc", created_on: "2017-04-21 07:42:51", updated_on: "2017-05-18 11:20:50", guid: "1f8d32e2-2666-11e7-ad14-02422ecf0374", zone_id: 1, type: "ManageIQ::Providers::Openstack::InfraManager", api_version: "v2", uid_ems: nil, host_default_vnc_port_start: nil, host_default_vnc_port_end: nil, provider_region: nil, last_refresh_error: nil, last_refresh_date: "2017-05-18 11:20:50", provider_id: 14, realm: nil, tenant_id: 1, project: nil, parent_ems_id: nil, subscription: nil, last_metrics_error: nil, last_metrics_update_date: nil, last_metrics_success_date: nil, tenant_mapping_enabled: nil, enabled: true>, :automatic_recovery=>false, :recover_from_connection_close=>false, :events_monitor=>:ceilometer}
+/home/.../projects/manageiq-gems-pending/lib/gems/pending/openstack/openstack_event_monitor.rb:15:in `available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/manager_mixin.rb:100:in `event_monitor_available?'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:15:in `block in all_valid_ems_in_zone'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `select'
+/home/.../projects/manageiq-providers-openstack/app/models/manageiq/providers/openstack/infra_manager/event_catcher.rb:14:in `all_valid_ems_in_zone'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:26:in `desired_queue_names'
+/home/.../projects/manageiq/app/models/mixins/per_ems_worker_mixin.rb:32:in `sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:53:in `block in sync_workers'
+/home/.../projects/manageiq/app/models/miq_server/worker_management/monitor.rb:50:in `each'
+--
+/home/.../projects/manageiq/lib/workers/bin/evm_server.rb:4:in `<main>'
+
+########
+[----] D, [2017-05-18T13:30:56.720643 #30508:2aff31f54f3c] DEBUG -- : MIQ(OpenstackCeilometerEventMonitor.connect_service_from_settings) Using events provided by "panko" service, which was set in settings.yml.
+[fog][WARNING] Unrecognized arguments: provider
+[----] I, [2017-05-18T13:30:57.288573 #30508:2aff31f54f3c]  INFO -- : MIQ(ManageIQ::Providers::StorageManager::CinderManager::EventCatcher.sync_workers) Workers are being synchronized: Current: [], Desired: ["ems_87"]
+[----] D, [2017-05-18T13:30:57.288865 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:57.288902 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:57.289859 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:57.289893 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:57.290546 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:57.290581 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#config) VMDB::Config#config is deprecated.  Prefer using Settings directly.
+[----] D, [2017-05-18T13:30:57.291234 #30508:2aff31f54f3c] DEBUG -- : MIQ(VMDB::Config#initialize) VMDB::Config.new is deprecated.  Prefer using Settings directly.
+^C
+$ be rake evm:status
+** override_gem: manageiq-providers-openstack, [">0", {:require=>"manageiq-providers-openstack", :path=>"../../manageiq-providers-openstack"}], caller: /home/maufart/projects/manageiq/bundler.d/Gemfile.dev.rb
+** override_gem: manageiq-gems-pending, [">0", {:require=>"manageiq-gems-pending", :path=>"../../manageiq-gems-pending"}], caller: /home/maufart/projects/manageiq/bundler.d/Gemfile.dev.rb
+** Using session_store: ActionDispatch::Session::MemCacheStore
+Checking EVM status...
+ Zone    | Server | Status  | ID |   PID |  SPID | URL                     | Started On           | Last Heartbeat       | Master? | Active Roles
+---------+--------+---------+----+-------+-------+-------------------------+----------------------+----------------------+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ default | EVM    | started |  1 | 30508 | 30533 | druby://127.0.0.1:46207 | 2017-05-18T11:28:53Z | 2017-05-18T11:29:34Z | true    | automate:database_operations:database_owner:ems_inventory:ems_operations:event:reporting:scheduler:smartstate:user_interface:web_services:websocket
+
+ Worker Type                                                       | Status   |    ID |   PID | SPID  | Server id | Queue Name / URL    | Started On           | Last Heartbeat
+-------------------------------------------------------------------+----------+-------+-------+-------+-----------+---------------------+----------------------+----------------------
+ ManageIQ::Providers::Openstack::CloudManager::EventCatcher        | started  | 17127 | 30664 | 30676 |         1 | ems_89              | 2017-05-18T11:29:08Z | 2017-05-18T11:29:40Z
+ ManageIQ::Providers::Openstack::CloudManager::RefreshWorker       | started  | 17121 | 30600 | 30658 |         1 | ems_89              | 2017-05-18T11:29:04Z | 2017-05-18T11:29:41Z
+ ManageIQ::Providers::Openstack::InfraManager::EventCatcher        | started  | 17130 | 30698 | 30784 |         1 | ems_85              | 2017-05-18T11:29:12Z | 2017-05-18T11:29:44Z
+ ManageIQ::Providers::Openstack::InfraManager::RefreshWorker       | started  | 17124 | 30627 | 30655 |         1 | ems_85              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:16Z
+ ManageIQ::Providers::Openstack::NetworkManager::EventCatcher      | started  | 17129 | 30689 | 30746 |         1 | ems_90              | 2017-05-18T11:29:10Z | 2017-05-18T11:29:43Z
+ ManageIQ::Providers::Openstack::NetworkManager::EventCatcher      | started  | 17128 | 30680 | 30724 |         1 | ems_86              | 2017-05-18T11:29:10Z | 2017-05-18T11:29:43Z
+ ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker     | started  | 17123 | 30618 | 30662 |         1 | ems_90              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:44Z
+ ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker     | started  | 17122 | 30609 | 30654 |         1 | ems_86              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:40Z
+ ManageIQ::Providers::StorageManager::CinderManager::EventCatcher  | starting | 17138 | 30978 | 30986 |         1 | ems_87              | 2017-05-18T11:29:44Z | 2017-05-18T11:29:44Z
+ ManageIQ::Providers::StorageManager::CinderManager::RefreshWorker | started  | 17125 | 30636 | 30660 |         1 | ems_87              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:42Z
+ ManageIQ::Providers::StorageManager::SwiftManager::RefreshWorker  | started  | 17126 | 30645 | 30663 |         1 | ems_88              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:43Z
+ MiqEventHandler                                                   | started  | 17132 | 30716 | 30758 |         1 | ems                 | 2017-05-18T11:29:12Z | 2017-05-18T11:29:44Z
+ MiqGenericWorker                                                  | started  | 17116 | 30539 | 30587 |         1 | generic             | 2017-05-18T11:28:54Z | 2017-05-18T11:29:43Z
+ MiqGenericWorker                                                  | started  | 17117 | 30548 | 30589 |         1 | generic             | 2017-05-18T11:28:54Z | 2017-05-18T11:29:43Z
+ MiqPriorityWorker                                                 | started  | 17118 | 30557 | 30590 |         1 | generic             | 2017-05-18T11:28:54Z | 2017-05-18T11:29:44Z
+ MiqPriorityWorker                                                 | started  | 17119 | 30566 | 30591 |         1 | generic             | 2017-05-18T11:28:54Z | 2017-05-18T11:29:44Z
+ MiqReportingWorker                                                | started  | 17133 | 30728 | 30773 |         1 | reporting           | 2017-05-18T11:29:12Z | 2017-05-18T11:29:43Z
+ MiqReportingWorker                                                | started  | 17134 | 30737 | 30779 |         1 | reporting           | 2017-05-18T11:29:12Z | 2017-05-18T11:29:43Z
+ MiqScheduleWorker                                                 | started  | 17120 | 30575 | 30595 |         1 |                     | 2017-05-18T11:28:54Z | 2017-05-18T11:29:37Z
+ MiqUiWorker                                                       | started  | 17136 | 30759 |       |         1 | http://0.0.0.0:3000 | 2017-05-18T11:29:12Z | 2017-05-18T11:29:37Z
+ MiqWebServiceWorker                                               | started  | 17137 | 30769 |       |         1 | http://0.0.0.0:4000 | 2017-05-18T11:29:12Z | 2017-05-18T11:29:37Z
+ MiqWebsocketWorker                                                | started  | 17135 | 30749 |       |         1 | http://0.0.0.0:5000 | 2017-05-18T11:29:12Z | 2017-05-18T11:29:37Z
+$ cd ../manageiq-gems-pending
+$ git diff
+diff --git a/lib/gems/pending/openstack/events/openstack_ceilometer_event_monitor.rb b/lib/gems/pending/openstack/events/openstack_ceilometer_event_monitor.rb
+index 23c44be..e8e0160 100644
+--- a/lib/gems/pending/openstack/events/openstack_ceilometer_event_monitor.rb
++++ b/lib/gems/pending/openstack/events/openstack_ceilometer_event_monitor.rb
+@@ -4,6 +4,10 @@ require 'openstack/events/openstack_ceilometer_event_converter'
+ 
+ class OpenstackCeilometerEventMonitor < OpenstackEventMonitor
+   def self.available?(options = {})
++    puts "######## AVAILABLE? openstack event monitor:"
++    p options
++    puts puts caller.join "\n"
++    puts "########"
+     return connect_service_from_settings(options[:ems]) if event_services.keys.include? event_service_settings
+     begin
+       options[:ems].connect(:service => "Event")
+@@ -19,6 +23,10 @@ class OpenstackCeilometerEventMonitor < OpenstackEventMonitor
+   end
+ 
+   def initialize(options = {})
++    puts "######## INIT openstack event monitor:"
++    p options
++    puts puts caller.join "\n"
++    puts "########"
+     @options = options
+     @ems = options[:ems]
+     @config = options.fetch(:ceilometer, {})
+

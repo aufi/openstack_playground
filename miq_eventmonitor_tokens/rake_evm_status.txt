@@ -1,0 +1,33 @@
+$ be rake evm:status
+** override_gem: manageiq-providers-openstack, [">0", {:require=>"manageiq-providers-openstack", :path=>"../../manageiq-providers-openstack"}], caller: /home/maufart/projects/manageiq/bundler.d/Gemfile.dev.rb
+** override_gem: manageiq-gems-pending, [">0", {:require=>"manageiq-gems-pending", :path=>"../../manageiq-gems-pending"}], caller: /home/maufart/projects/manageiq/bundler.d/Gemfile.dev.rb
+** Using session_store: ActionDispatch::Session::MemCacheStore
+Checking EVM status...
+ Zone    | Server | Status  | ID |   PID |  SPID | URL                     | Started On           | Last Heartbeat       | Master? | Active Roles
+---------+--------+---------+----+-------+-------+-------------------------+----------------------+----------------------+---------+-----------------------------------------------------------------------------------------------------------------------------------------------------
+ default | EVM    | started |  1 | 30508 | 30533 | druby://127.0.0.1:46207 | 2017-05-18T11:28:53Z | 2017-05-18T11:29:34Z | true    | automate:database_operations:database_owner:ems_inventory:ems_operations:event:reporting:scheduler:smartstate:user_interface:web_services:websocket
+
+ Worker Type                                                       | Status   |    ID |   PID | SPID  | Server id | Queue Name / URL    | Started On           | Last Heartbeat
+-------------------------------------------------------------------+----------+-------+-------+-------+-----------+---------------------+----------------------+----------------------
+ ManageIQ::Providers::Openstack::CloudManager::EventCatcher        | started  | 17127 | 30664 | 30676 |         1 | ems_89              | 2017-05-18T11:29:08Z | 2017-05-18T11:29:40Z
+ ManageIQ::Providers::Openstack::CloudManager::RefreshWorker       | started  | 17121 | 30600 | 30658 |         1 | ems_89              | 2017-05-18T11:29:04Z | 2017-05-18T11:29:41Z
+ ManageIQ::Providers::Openstack::InfraManager::EventCatcher        | started  | 17130 | 30698 | 30784 |         1 | ems_85              | 2017-05-18T11:29:12Z | 2017-05-18T11:29:44Z
+ ManageIQ::Providers::Openstack::InfraManager::RefreshWorker       | started  | 17124 | 30627 | 30655 |         1 | ems_85              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:16Z
+ ManageIQ::Providers::Openstack::NetworkManager::EventCatcher      | started  | 17129 | 30689 | 30746 |         1 | ems_90              | 2017-05-18T11:29:10Z | 2017-05-18T11:29:43Z
+ ManageIQ::Providers::Openstack::NetworkManager::EventCatcher      | started  | 17128 | 30680 | 30724 |         1 | ems_86              | 2017-05-18T11:29:10Z | 2017-05-18T11:29:43Z
+ ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker     | started  | 17123 | 30618 | 30662 |         1 | ems_90              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:44Z
+ ManageIQ::Providers::Openstack::NetworkManager::RefreshWorker     | started  | 17122 | 30609 | 30654 |         1 | ems_86              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:40Z
+ ManageIQ::Providers::StorageManager::CinderManager::EventCatcher  | starting | 17138 | 30978 | 30986 |         1 | ems_87              | 2017-05-18T11:29:44Z | 2017-05-18T11:29:44Z
+ ManageIQ::Providers::StorageManager::CinderManager::RefreshWorker | started  | 17125 | 30636 | 30660 |         1 | ems_87              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:42Z
+ ManageIQ::Providers::StorageManager::SwiftManager::RefreshWorker  | started  | 17126 | 30645 | 30663 |         1 | ems_88              | 2017-05-18T11:29:05Z | 2017-05-18T11:29:43Z
+ MiqEventHandler                                                   | started  | 17132 | 30716 | 30758 |         1 | ems                 | 2017-05-18T11:29:12Z | 2017-05-18T11:29:44Z
+ MiqGenericWorker                                                  | started  | 17116 | 30539 | 30587 |         1 | generic             | 2017-05-18T11:28:54Z | 2017-05-18T11:29:43Z
+ MiqGenericWorker                                                  | started  | 17117 | 30548 | 30589 |         1 | generic             | 2017-05-18T11:28:54Z | 2017-05-18T11:29:43Z
+ MiqPriorityWorker                                                 | started  | 17118 | 30557 | 30590 |         1 | generic             | 2017-05-18T11:28:54Z | 2017-05-18T11:29:44Z
+ MiqPriorityWorker                                                 | started  | 17119 | 30566 | 30591 |         1 | generic             | 2017-05-18T11:28:54Z | 2017-05-18T11:29:44Z
+ MiqReportingWorker                                                | started  | 17133 | 30728 | 30773 |         1 | reporting           | 2017-05-18T11:29:12Z | 2017-05-18T11:29:43Z
+ MiqReportingWorker                                                | started  | 17134 | 30737 | 30779 |         1 | reporting           | 2017-05-18T11:29:12Z | 2017-05-18T11:29:43Z
+ MiqScheduleWorker                                                 | started  | 17120 | 30575 | 30595 |         1 |                     | 2017-05-18T11:28:54Z | 2017-05-18T11:29:37Z
+ MiqUiWorker                                                       | started  | 17136 | 30759 |       |         1 | http://0.0.0.0:3000 | 2017-05-18T11:29:12Z | 2017-05-18T11:29:37Z
+ MiqWebServiceWorker                                               | started  | 17137 | 30769 |       |         1 | http://0.0.0.0:4000 | 2017-05-18T11:29:12Z | 2017-05-18T11:29:37Z
+ MiqWebsocketWorker                                                | started  | 17135 | 30749 |       |         1 | http://0.0.0.0:5000 | 2017-05-18T11:29:12Z | 2017-05-18T11:29:37Z

@@ -1,0 +1,27 @@
+diff --git a/lib/gems/pending/openstack/events/openstack_ceilometer_event_monitor.rb b/lib/gems/pending/openstack/events/openstack_ceilometer_event_monitor.rb
+index 23c44be..e8e0160 100644
+--- a/lib/gems/pending/openstack/events/openstack_ceilometer_event_monitor.rb
++++ b/lib/gems/pending/openstack/events/openstack_ceilometer_event_monitor.rb
+@@ -4,6 +4,10 @@ require 'openstack/events/openstack_ceilometer_event_converter'
+ 
+ class OpenstackCeilometerEventMonitor < OpenstackEventMonitor
+   def self.available?(options = {})
++    puts "######## AVAILABLE? openstack event monitor:"
++    p options
++    puts puts caller.join "\n"
++    puts "########"
+     return connect_service_from_settings(options[:ems]) if event_services.keys.include? event_service_settings
+     begin
+       options[:ems].connect(:service => "Event")
+@@ -19,6 +23,10 @@ class OpenstackCeilometerEventMonitor < OpenstackEventMonitor
+   end
+ 
+   def initialize(options = {})
++    puts "######## INIT openstack event monitor:"
++    p options
++    puts puts caller.join "\n"
++    puts "########"
+     @options = options
+     @ems = options[:ems]
+     @config = options.fetch(:ceilometer, {})
+
